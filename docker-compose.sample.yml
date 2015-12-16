@@ -1,0 +1,19 @@
+backup:
+  # build: docker-backup-to-s3
+  image: istepanov/backup-to-s3
+  environment:
+   - PARAMS=--verbose
+   # set your ACCESS_KEY & SECRET_KEY
+   - ACCESS_KEY=xxx
+   - SECRET_KEY=xxx
+   # change your bucket name
+   - S3_PATH=s3://bucket-name/backups/
+   - DATA_PATH=/data/
+   - 'CRON_SCHEDULE=*/15 * * * *'
+  # command: no-cron
+  volumes:
+   - ~/ECS-sample_app/data:/data:ro
+file-generator:
+  build: file-generator
+  volumes:
+   - ~/ECS-sample_app/data:/data
