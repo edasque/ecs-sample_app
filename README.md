@@ -11,6 +11,11 @@ Generating ECS JSON files
 ---
 Those were converted from docker-compose files using [container-tranform](https://github.com/ambitioninc/container-transform) (```pip install container-transform```).
 
+Docker Hub
+---
+* [File Generator](https://hub.docker.com/r/edasque/ecs-sample-app-file-generator/)
+* [TCP & HTTP servers](https://hub.docker.com/r/edasque/ecs-sample-app-thats-what-time-it-is/)
+
 TODO
 ---
 * ~~Figure out why I can reach the HTTP server (port 8000) but not the TCP one (port 9000) ~~ - it was because it was listening on *localhost* instead of *0.0.0.0*
