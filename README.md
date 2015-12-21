@@ -4,7 +4,7 @@ ECS Sample App
 A basis for a Elastic Container Service tutorial
 
 * A container that holds a HTTP server that listens on  port 8000 (```curl http://hostname:8000```) and TCP server that listens on port 9000 (```nc hostname 9000```)
-* a process that generates random files names which content is the current datetime in a given volume
+* a container that generates random files names which content is the current datetime in a given volume
 * a container that syncs that volume to an S3 bucket
 
 Generating ECS JSON files

@@ -50,7 +50,7 @@
             "memory": "128",
             "cpu": "1",
             "portMappings": [],
-            "image": "edasque/ecs-sample_app",
+            "image": "edasque/edasque/ecs-sample-app-file-generator",
             "mountPoints": [
                 {
                     "containerPath": "/data",
@@ -70,7 +70,7 @@
             "memory": "128",
             "cpu": "1",
 
-            "name": "thats-what-time-it-is",
+            "name": "edasque/ecs-sample-app-thats-what-time-it-is",
             "portMappings": [
                 {
                     "containerPort": 9000,
