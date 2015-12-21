@@ -1,0 +1,95 @@
+{
+    "containerDefinitions": [
+        {
+            "environment": [
+                {
+                    "name": "ACCESS_KEY",
+                    "value": "xxx"
+                },
+                {
+                    "name": "SECRET_KEY",
+                    "value": "xxx"
+                },
+                {
+                    "name": "S3_PATH",
+                    "value": "s3://ecs-sample-app/backups/"
+                },
+                {
+                    "name": "CRON_SCHEDULE",
+                    "value": "*/15 * * * *"
+                },
+                {
+                    "name": "DATA_PATH",
+                    "value": "/data/"
+                },
+                {
+                    "name": "PARAMS",
+                    "value": "--verbose"
+                }
+            ],
+            "essential": true,
+            "memory": "128",
+            "cpu": "1",
+            "portMappings": [],
+            "image": "istepanov/backup-to-s3",
+            "mountPoints": [
+                {
+                    "containerPath": "/data",
+                    "sourceVolume": "data-folder"
+                }
+            ],
+            "name": "backup",
+            "volumesFrom": null,
+            "extraHosts": null,
+            "logConfiguration": null,
+            "ulimits": null,
+            "dockerLabels": null
+        },
+        {
+            "essential": true,
+            "memory": "128",
+            "cpu": "1",
+            "portMappings": [],
+            "image": "edasque/ecs-sample_app",
+            "mountPoints": [
+                {
+                    "containerPath": "/data",
+                    "sourceVolume": "data-folder"
+                }
+            ],
+            "name": "file-generator",
+            "environment": null,
+            "volumesFrom": null,
+            "extraHosts": null,
+            "logConfiguration": null,
+            "ulimits": null,
+            "dockerLabels": null
+        },
+        {
+            "essential": true,
+            "memory": "128",
+            "cpu": "1",
+
+            "name": "thats-what-time-it-is",
+            "portMappings": [
+                {
+                    "containerPort": 9000,
+                    "hostPort": 9000
+                },
+                {
+                    "containerPort": 8000,
+                    "hostPort": 8000
+                }
+            ]
+        }
+    ],
+    "family": "ecs-sample-app",
+    "volumes": [
+        {
+            "host": {
+                "sourcePath": "/data"
+            },
+            "name": "data-folder"
+        }
+    ]
+}

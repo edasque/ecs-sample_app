@@ -1,1 +1,3 @@
 docker-compose.yml
+ECS-sample_app.json
+data/
