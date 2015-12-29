@@ -70,7 +70,7 @@
             "memory": "128",
             "cpu": "1",
             "name": "thats-what-time-it-is",
-            "name": "edasque/ecs-sample-app-thats-what-time-it-is",
+            "image": "edasque/ecs-sample-app-thats-what-time-it-is",
             "portMappings": [
                 {
                     "containerPort": 9000,
