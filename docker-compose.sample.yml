@@ -14,11 +14,13 @@ backup:
   volumes:
    - ~/ECS-sample_app/data:/data:ro
 file-generator:
-  build: file-generator
-  volumes:
+  # build: file-generator
+  image: edasque/ecs-sample-app-file-generator
+volumes:
    - ~/ECS-sample_app/data:/data
 thats-what-time-it-is:
-  build: thats-what-time-it-is
+  # build: thats-what-time-it-is
+  image: edasque/ecs-sample-app-thats-what-time-it-is
   ports:
    - "9000:9000"
    - "8000:8000"
