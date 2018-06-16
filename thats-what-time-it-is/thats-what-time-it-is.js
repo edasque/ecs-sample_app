@@ -30,8 +30,8 @@ var tcp_server = net.createServer(function (socket) {
 
 });
 
-// Fire up the server bound to port 7000 on localhost
+// Fire up the server bound to port 9000 on localhost
 tcp_server.listen(9000, "0.0.0.0");
 
 // Put a friendly message on the terminal
-console.log("TCP server listening on port 9000 at localhost. Communicate with 'nc localhost 7000'");
+console.log("TCP server listening on port 9000 at localhost. Communicate with 'nc localhost 9000'");

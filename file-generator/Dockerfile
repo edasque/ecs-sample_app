@@ -1,6 +1,6 @@
 # Pull base image.
-FROM ubuntu:vivid
-MAINTAINER Erik Dasque <erik@frenchguys.com>
+FROM ubuntu:bionic
+LABEL author="Erik Dasque <erik@frenchguys.com>"
 
 # Install base packages
 RUN apt-get update

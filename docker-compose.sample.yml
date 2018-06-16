@@ -1,26 +1,28 @@
-backup:
-  # build: docker-backup-to-s3
-  image: istepanov/backup-to-s3
-  environment:
-   - PARAMS=--verbose
-   # set your ACCESS_KEY & SECRET_KEY
-   - ACCESS_KEY=xxx
-   - SECRET_KEY=xxx
-   # change your bucket name
-   - S3_PATH=s3://bucket-name/backups/
-   - DATA_PATH=/data/
-   - 'CRON_SCHEDULE=*/15 * * * *'
-  # command: no-cron
-  volumes:
-   - ~/ECS-sample_app/data:/data:ro
-file-generator:
-  # build: file-generator
-  image: edasque/ecs-sample-app-file-generator
-volumes:
-   - ~/ECS-sample_app/data:/data
-thats-what-time-it-is:
-  # build: thats-what-time-it-is
-  image: edasque/ecs-sample-app-thats-what-time-it-is
-  ports:
-   - "9000:9000"
-   - "8000:8000"
+version: '3.6'
+services:
+  # backup:
+    # build: docker-backup-to-s3
+    # image: istepanov/backup-to-s3
+    # environment:
+    # - PARAMS=--verbose
+    # # set your ACCESS_KEY & SECRET_KEY
+    # - ACCESS_KEY=xxx
+    # - SECRET_KEY=xxx
+    # # change your bucket name
+    # - S3_PATH=s3://bucket-name/backups/
+    # - DATA_PATH=/data/
+    # - 'CRON_SCHEDULE=*/15 * * * *'
+    # # command: no-cron
+    # volumes:
+    # - ~/ECS-sample_app/data:/data:ro
+  file-generator:
+    build: file-generator
+    # image: edasque/ecs-sample-app-file-generator
+    volumes:
+    - ~/ECS-sample_app/data:/data
+  thats-what-time-it-is:
+    build: thats-what-time-it-is
+    # image: edasque/ecs-sample-app-thats-what-time-it-is
+    ports:
+    - "9000:9000"
+    - "8000:8000"
